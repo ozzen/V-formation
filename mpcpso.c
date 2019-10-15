@@ -10,10 +10,12 @@
 
 const int Num = 7;
 // Number of time stpes
-const int Steps = 2;
+const int Steps = 50;
 // Initial range
 
-const double Init_box = 3.0; //4.0;
+// Initial configs
+
+const double Init_box = 5.0; 
 
 const double InitVmin = 0.25;
 const double InitVmax = 0.75;
