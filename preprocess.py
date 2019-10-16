@@ -15,4 +15,4 @@ for i in range(1,8):
 print(df.head())
 
 # saving dataframe
-df.to_csv("/Users/admin/Desktop/V-formation/AMPC/traj.csv", index=False)
+df.to_csv("/Users/admin/Desktop/V-formation/AMPC/newtraj.csv", index=False)
