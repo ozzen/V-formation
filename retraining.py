@@ -36,30 +36,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.1)
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 
-# DNN training
-model = Sequential()
-
-# gives the number of input features
-n_cols = X.shape[1]
-
-# hidden layers
-model.add(Dense(128, activation='sigmoid', input_shape=(n_cols,)))
-model.add(Dense(128))
-model.add(Dense(128))
-model.add(Dense(128))
-model.add(Dense(128))
-
-# output layer
-model.add(Dense(2))
-
-# optimization
-adam = keras.optimizers.Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0, amsgrad=False)
-model.compile(optimizer='adam', loss='mean_squared_error', metrics =['accuracy'])
-model.summary()
+# DNN guided retraining
+model = load_model('neural_controller.h5')
 
 start = time.perf_counter()
 
-# training
+# retraining
 history = model.fit(X_train, y_train, validation_data=(X_test,y_test), batch_size=1000 , epochs=100000, verbose = 2)
 
 end = time.perf_counter()
