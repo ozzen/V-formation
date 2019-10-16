@@ -13,3 +13,6 @@ for i in range(1,8):
 
 # verifying data
 print(df.head())
+
+# saving dataframe
+df.to_csv("/Users/admin/Desktop/V-formation/AMPC/traj.csv", index=False)
